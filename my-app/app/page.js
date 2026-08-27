@@ -7,7 +7,7 @@ export default function Home() {
     <div className="flex relative flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <Link href={"/articles"}>
         <button className="flex bg-red-500 px-10 py-5 rounded-2xl baker">
-          Baker Hallak
+          Hello!
         </button>
         <Suspense></Suspense>
       </Link>
