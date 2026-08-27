@@ -23,18 +23,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <nav className="flex justify-center items-center gap-5 p-10 bg-red-400 text-4xl">
-          <Link href={"/"}>Home</Link>
-          <Link href={"/posts"}>Posts</Link>
-          <Link href={"/articles"}>Articels</Link>
-        </nav>
-
-        {children}
-        <footer className="flex justify-center items-center gap-5 p-10 bg-red-400 text-8xl">
-          Baker Hallak
-        </footer>
-      </body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
