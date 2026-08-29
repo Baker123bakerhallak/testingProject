@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono, Tajawal } from "next/font/google";
 import "./globals.css";
-import AnchorTemporaryDrawer from "./Sidebar.js";
+import TemporaryDrawer from "./Sidebar.js";
 import Link from "next/link";
 import Providers from "./provider";
 import Navigation from "./navigation/Navigation";
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
     <html lang="en" dir="rtl">
       <body className={`${tajawal.className}`}>
         <Providers>
-          <AnchorTemporaryDrawer />
+          <TemporaryDrawer />
           {children}
         </Providers>
       </body>
