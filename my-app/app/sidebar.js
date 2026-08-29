@@ -17,7 +17,7 @@ import Button from "@mui/material/Button";
 import { menuItems } from "./menuItems/menuItems";
 import "./app.css";
 
-export default function TemporaryDrawer() {
+export default function Sidebar() {
   const DrawerList = (
     <Box sx={{ width: "250px " }} role="presentation" dir={"ltr"}>
       <List>

@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono, Tajawal } from "next/font/google";
 import "./globals.css";
-import TemporaryDrawer from "./Sidebar.js";
+import Sidebar from "./Sidebar";
 import Link from "next/link";
 import Providers from "./provider";
 import Navigation from "./navigation/Navigation";
