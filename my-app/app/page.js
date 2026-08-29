@@ -1,11 +1,19 @@
 import Link from "next/link";
 import "./app.css";
 import { Suspense } from "react";
+import Navigation from "./navigation/Navigation";
 
 export default function Home() {
   return (
-    <div className="flex relative flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <h2>Hello! </h2>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "flex-end",
+        marginRight: "350px",
+        flexDirection: "column",
+      }}
+    >
+      <Navigation />
     </div>
   );
 }

@@ -1,0 +1,38 @@
+.css-2soe65-MuiModal-root-MuiDrawer-root {
+    width: 280px;
+}
+
+.input-search {
+    border-radius: 5px !important;
+    -webkit-border-radius: 5px !important;
+    -moz-border-radius: 5px !important;
+    -ms-border-radius: 5px !important;
+    -o-border-radius: 5px !important;
+}
+
+.input-search {
+    flex: 1;
+    border: none;
+    height: 100%;
+}
+
+
+
+.input-search:focus {
+    outline: none;
+}
+
+.input-search:focus+.input-label,
+.input-search:not(:placeholder-shown)+.input-label {
+    top: -20px;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    font-size: 11px;
+    color: #1976d4;
+    background-color: #f3f3f3;
+    padding: 0 4px;
+    opacity: 0;
+}

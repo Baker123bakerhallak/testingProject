@@ -3,6 +3,7 @@ import "./globals.css";
 import AnchorTemporaryDrawer from "../app/Sidebar";
 import Link from "next/link";
 import Providers from "./provider";
+import Navigation from "./navigation/Navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,7 @@ const tajawal = Tajawal({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" dir="rtl">
-      <body className={`${tajawal.className}  main-layout `}>
+      <body className={`${tajawal.className}`}>
         <Providers>
           <AnchorTemporaryDrawer />
           {children}
