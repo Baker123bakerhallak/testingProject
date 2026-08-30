@@ -3,7 +3,7 @@ import "./globals.css";
 
 import Link from "next/link";
 import Providers from "./provider";
-import Sidebar from "./Sidebar";
+import Sidebar from "./sidebar.js";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

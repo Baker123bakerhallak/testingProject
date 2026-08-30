@@ -1,0 +1,29 @@
+/* [project]/app/app.css [app-client] (css) */
+.css-2soe65-MuiModal-root-MuiDrawer-root {
+  width: 280px;
+}
+
+.input-search {
+  border: none;
+  flex: 1;
+  height: 100%;
+  -ms-border-radius: 5px !important;
+  -o-border-radius: 5px !important;
+  border-radius: 5px !important;
+}
+
+.input-search:focus {
+  outline: none;
+}
+
+.input-search:focus + .input-label, .input-search:not(:placeholder-shown) + .input-label {
+  color: #1976d4;
+  opacity: 0;
+  background-color: #f3f3f3;
+  padding: 0 4px;
+  font-size: 11px;
+  top: -20px;
+  transform: translateY(0);
+}
+
+/*# sourceMappingURL=app_app_1vzhag3.css.map*/
