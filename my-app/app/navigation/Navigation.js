@@ -5,7 +5,7 @@ import "../app.css";
 import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined";
 import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsActiveOutlined";
 import QrCodeOutlinedIcon from "@mui/icons-material/QrCodeOutlined";
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import theme from "../theme";
 import { useEffect, useState } from "react";
@@ -14,6 +14,7 @@ import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 
 export default function Navigation() {
   const [data, setData] = useState("");
+  const theme = useTheme();
 
   useEffect(() => {
     let ignore = false;

@@ -2,8 +2,9 @@ import { Geist, Geist_Mono, Tajawal } from "next/font/google";
 import "./globals.css";
 
 import Link from "next/link";
-import Providers from "./provider";
+import Providers from "./theme";
 import Sidebar from "./sidebar.js";
+import DataContext from "./context/Context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,9 +32,10 @@ export default function RootLayout({ children }) {
     <html lang="en" dir="rtl">
       <body className={`${tajawal.className}`}>
         <Providers>
-          <Sidebar />
-
-          {children}
+          <DataContext>
+            <Sidebar />
+            {children}
+          </DataContext>
         </Providers>
       </body>
     </html>

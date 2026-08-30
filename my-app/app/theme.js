@@ -1,4 +1,8 @@
-import { createTheme } from "@mui/material/styles";
+"use client";
+
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useState } from "react";
 
 const theme = createTheme({
   direction: "rtl",
@@ -10,7 +14,7 @@ const theme = createTheme({
       main: "#7B0046",
     },
     secondary: {
-      main: "#666",
+      main: "#999",
     },
     background: {
       default: "#F8FAFC",
@@ -19,4 +23,11 @@ const theme = createTheme({
   },
 });
 
-export default theme;
+export default function Providers({ children }) {
+  const [queryClient] = useState(() => new QueryClient());
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </QueryClientProvider>
+  );
+}

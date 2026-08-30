@@ -1,7 +1,6 @@
-import Link from "next/link";
 import "./app.css";
-import { Suspense } from "react";
 import Navigation from "./navigation/Navigation";
+import HeroSection from "./HeroSection/HeroSection";
 
 export default function Home() {
   return (
@@ -14,6 +13,7 @@ export default function Home() {
       }}
     >
       <Navigation />
+      <HeroSection />
     </div>
   );
 }
