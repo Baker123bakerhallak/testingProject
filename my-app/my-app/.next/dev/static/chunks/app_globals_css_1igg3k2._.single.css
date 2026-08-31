@@ -1,0 +1,14 @@
+/* [project]/app/globals.css [app-client] (css) */
+.main-layout {
+  background-color: #fff;
+}
+
+html, body {
+  font-family: var(--font-tajawal), sans-serif;
+}
+
+.linear {
+  background-image: linear-gradient(to bottom right, #6d003e, #d40078) !important;
+}
+
+/*# sourceMappingURL=app_globals_css_1igg3k2._.single.css.map*/

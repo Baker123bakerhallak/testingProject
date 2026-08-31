@@ -11,7 +11,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Link from "next/link";
 import Image from "next/image";
-import profileImage from "../asserts/image.png";
+
 import LogoutIcon from "@mui/icons-material/Logout";
 import Button from "@mui/material/Button";
 import { menuItems } from "./menuItems/menuItems";
@@ -99,6 +99,8 @@ export default function Sidebar() {
             }}
           >
             <Image
+              width={75}
+              height={75}
               style={{
                 width: "75px",
                 height: "75px",
@@ -107,7 +109,7 @@ export default function Sidebar() {
                 left: "-20px",
                 backgroundPosition: "top",
               }}
-              src={profileImage}
+              src={"/image.png"}
               alt="profile"
             />
           </Box>

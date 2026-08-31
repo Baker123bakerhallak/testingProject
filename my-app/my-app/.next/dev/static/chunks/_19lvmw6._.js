@@ -5,11 +5,14 @@
 __turbopack_context__.s([
     "API_URL",
     ()=>API_URL,
+    "NOTIFICATION_ENDPOIT",
+    ()=>NOTIFICATION_ENDPOIT,
     "TOTAL_STUDENTS_ENDPOINT",
     ()=>TOTAL_STUDENTS_ENDPOINT
 ]);
 const API_URL = "https://olamaa.iss-group.me/test-env/api/";
 const TOTAL_STUDENTS_ENDPOINT = "students/total-students";
+const NOTIFICATION_ENDPOIT = "/api/notifications";
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
@@ -26,28 +29,33 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$getData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/fetchData/getData.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Api$2f$api$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/Api/api.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
 ;
 ;
+;
 const Data = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(null);
 function DataContext({ children }) {
     _s();
-    const totalStudents = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$getData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotalStudent"])();
+    const totalStudents = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$getData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotalStudent"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Api$2f$api$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TOTAL_STUDENTS_ENDPOINT"]);
+    const notification = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$getData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotalStudent"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Api$2f$api$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NOTIFICATION_ENDPOIT"]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Data.Provider, {
         value: {
-            totalStudents
+            totalStudents,
+            notification
         },
         children: children
     }, void 0, false, {
         fileName: "[project]/app/context/Context.js",
-        lineNumber: 12,
+        lineNumber: 14,
         columnNumber: 5
     }, this);
 }
-_s(DataContext, "Y9FdqsGJJB1CuK7htMFwHvKmQI0=", false, function() {
+_s(DataContext, "yiGRkuOlAe1TiQDp0efSIV7EhfE=", false, function() {
     return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$getData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotalStudent"],
         __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$getData$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotalStudent"]
     ];
 });
@@ -75,7 +83,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const useGetTotalStudent = ()=>{
+const useGetTotalStudent = (endPoint)=>{
     _s();
     const query = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"])({
         queryKey: [
@@ -83,7 +91,7 @@ const useGetTotalStudent = ()=>{
         ],
         queryFn: {
             "useGetTotalStudent.useQuery[query]": async ()=>{
-                const response = await fetch(`${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Api$2f$api$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["API_URL"]}${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Api$2f$api$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TOTAL_STUDENTS_ENDPOINT"]}`, {
+                const response = await fetch(`${__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Api$2f$api$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["API_URL"]}${endPoint}`, {
                     headers: {
                         Accept: "application/json",
                         Authorization: "Bearer 2805|UiWkVS5MwsFLnmIVbb7GpZOuxS7dUDcJLxwZLjrz42085a1e"

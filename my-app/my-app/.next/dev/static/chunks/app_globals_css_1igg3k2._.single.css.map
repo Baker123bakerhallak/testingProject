@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/app/globals.css"],"sourcesContent":[".main-layout {\n  background-color: #ffff;\n}\n\nhtml,\nbody {\n  font-family: var(--font-tajawal), sans-serif;\n}\n\n.linear {\n  background-image: linear-gradient(to right bottom, #6D003E, #D40078) !important;\n}"],"names":[],"mappings":"AAAA;;;;AAIA;;;;AAKA"}}]
+}

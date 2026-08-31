@@ -6,3 +6,7 @@ html,
 body {
   font-family: var(--font-tajawal), sans-serif;
 }
+
+.linear {
+  background-image: linear-gradient(to right bottom, #6D003E, #D40078) !important;
+}

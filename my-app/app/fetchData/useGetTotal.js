@@ -1,15 +1,14 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { API_URL, TOTAL_STUDENTS_ENDPOINT } from "../Api/api";
-import { useContext, useEffect } from "react";
-import { Data } from "../context/Context";
+import { API_URL } from "../Api/api";
+import { refresh } from "next/cache";
 
-export const useGetTotalStudent = () => {
+export const useGetTotal = (endPoint, key) => {
   const query = useQuery({
-    queryKey: ["studentData"],
+    queryKey: [key],
     queryFn: async () => {
-      const response = await fetch(`${API_URL}${TOTAL_STUDENTS_ENDPOINT}`, {
+      const response = await fetch(`${API_URL}${endPoint}`, {
         headers: {
           Accept: "application/json",
           Authorization:
@@ -20,7 +19,7 @@ export const useGetTotalStudent = () => {
       if (!response.ok) {
         throw new Error("Failed to fetch total student data");
       }
-      return await response.json();
+      return (response, await response.json());
     },
   });
 
