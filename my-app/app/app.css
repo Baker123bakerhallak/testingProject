@@ -2,6 +2,10 @@
     width: 280px;
 }
 
+.css-voecp4-MuiInputBase-input-MuiFilledInput-input {
+    background-color: #f3f3f3 !important;
+}
+
 .input-search {
     border-radius: 5px !important;
     -webkit-border-radius: 5px !important;

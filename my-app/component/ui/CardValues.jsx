@@ -1,27 +1,45 @@
 "use client";
 
-import { Data } from "@/app/context/Context";
 import { Box, CircularProgress, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
-import React, { useContext } from "react";
+import "../../app/globals.css";
+import { Data } from "@/app/context/Context";
 
-function CardValues() {
+function CardValues({
+  title,
+  description,
+  fetchData,
+  isPending,
+  image,
+  isActive,
+  onMouseEnter,
+}) {
   const theme = useTheme();
-  const { totalStudents, emplpoyesCount } = useContext(Data);
+  const activeGradient = `linear-gradient(90deg, ${theme.palette.primary.main} 0%, #cf0477 100%)`;
+
   return (
     <Box
-      className={"linear"}
+      onMouseEnter={onMouseEnter}
       sx={{
         width: "261px",
-        heigt: "127px",
+        height: "125px",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "flex-start",
         padding: "20px",
-        boxShadow: `0px 0px  6px  ${theme.palette.secondary.main}`,
+        boxShadow: isActive
+          ? "0px 0px 10px rgba(123, 0, 70, 0.25)"
+          : `0px 0px 6px ${theme.palette.secondary.main}`,
         gap: "20px",
         borderRadius: "10px",
-        position: "relative",
+        color: isActive ? "#fff" : "#1a1a1a",
+        backgroundColor: isActive ? "transparent" : "#fff8fc",
+        backgroundImage: isActive ? activeGradient : "none",
+        backgroundSize: "cover",
+        transform: isActive ? "translateY(-5px)" : "translateY(0)",
+        transition:
+          "background-image 0.35s ease, transform 0.35s ease, color 0.35s ease, box-shadow 0.35s ease",
+        cursor: "pointer",
       }}
     >
       <Box
@@ -30,26 +48,27 @@ function CardValues() {
           justifyContent: "center",
           alignItems: "flex-start",
           flexDirection: "column",
+          gap: "10px",
         }}
       >
         <Typography
           sx={{
             fontWeight: "500",
             fontSize: "16px",
-            color: "white",
             marginBottom: "2px",
+            color: isActive ? "#fff" : "black",
           }}
         >
-          الموظفون الإداريون
+          {title}
         </Typography>
         <Typography
           sx={{
             fontWeight: "500",
             fontSize: "12px",
-            color: `${theme.palette.secondary.main}`,
+            color: isActive ? "#fff" : theme.palette.secondary.main,
           }}
         >
-          عدد الموظفون الإداريون بالأكاديمية
+          {description}
         </Typography>
         <Box
           sx={{
@@ -59,7 +78,15 @@ function CardValues() {
             marginTop: "10px",
           }}
         >
-          <Image width={30} height={30} src={"/star.png"} alt="---" />
+          <Image
+            width={30}
+            height={30}
+            sx={{
+              opacity: isActive ? "1" : "0",
+            }}
+            src={"/star.png"}
+            alt="---"
+          />
         </Box>
       </Box>
 
@@ -69,16 +96,23 @@ function CardValues() {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
+          gap: "20px",
         }}
       >
-        <Image src={"/image_copy.png"} alt="No Photo" width={50} height={50} />
-        <Box sx={{ fontWeight: "500", marginTop: "10px", color: "white" }}>
-          {totalStudents.isPending ? (
+        <Image src={image} alt="No Photo" width={50} height={50} />
+        <Box
+          sx={{
+            fontWeight: "500",
+            marginTop: "10px",
+            color: isActive ? "#fff" : "#fff",
+          }}
+        >
+          {isPending ? (
             <Box sx={{ display: "flex" }}>
-              <CircularProgress aria-label="Loading…" color="secondary" />
+              <CircularProgress aria-label="Loading…" />
             </Box>
           ) : (
-            emplpoyesCount?.data?.data.total_employees
+            <Box sx={{ color: isActive ? "white" : "black" }}>{fetchData}</Box>
           )}
         </Box>
       </Box>

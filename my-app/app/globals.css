@@ -1,3 +1,9 @@
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6f013f #f3e8f3;
+}
+
+
 .main-layout {
   background-color: #ffff;
 }

@@ -2,7 +2,6 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { API_URL } from "../Api/api";
-import { refresh } from "next/cache";
 
 export const useGetTotal = (endPoint, key) => {
   const query = useQuery({

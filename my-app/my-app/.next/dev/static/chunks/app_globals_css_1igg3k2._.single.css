@@ -1,4 +1,9 @@
 /* [project]/app/globals.css [app-client] (css) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6f013f #f3e8f3;
+}
+
 .main-layout {
   background-color: #fff;
 }

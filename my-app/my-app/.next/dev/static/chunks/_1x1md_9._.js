@@ -354,7 +354,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-function CardValues() {
+function CardValues(props) {
     _s();
     const theme = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$styles$2f$useTheme$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__useTheme$3e$__["useTheme"])();
     const { totalStudents, emplpoyesCount } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useContext"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$context$2f$Context$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Data"]);
@@ -388,7 +388,7 @@ function CardValues() {
                             color: "white",
                             marginBottom: "2px"
                         },
-                        children: "الموظفون الإداريون"
+                        children: props.title
                     }, void 0, false, {
                         fileName: "[project]/component/ui/CardValues.jsx",
                         lineNumber: 35,
@@ -400,7 +400,7 @@ function CardValues() {
                             fontSize: "12px",
                             color: `${theme.palette.secondary.main}`
                         },
-                        children: "عدد الموظفون الإداريون بالأكاديمية"
+                        children: props.description
                     }, void 0, false, {
                         fileName: "[project]/component/ui/CardValues.jsx",
                         lineNumber: 45,
@@ -443,7 +443,7 @@ function CardValues() {
                 },
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                        src: "/image_copy.png",
+                        src: "/statistic.png",
                         alt: "No Photo",
                         width: 50,
                         height: 50

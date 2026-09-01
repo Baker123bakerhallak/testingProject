@@ -136,6 +136,11 @@
 }
 
 /* [project]/app/globals.css [app-client] (css) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6f013f #f3e8f3;
+}
+
 .main-layout {
   background-color: #fff;
 }
@@ -151,6 +156,10 @@ html, body {
 /* [project]/app/app.css [app-client] (css) */
 .css-2soe65-MuiModal-root-MuiDrawer-root {
   width: 280px;
+}
+
+.css-voecp4-MuiInputBase-input-MuiFilledInput-input {
+  background-color: #f3f3f3 !important;
 }
 
 .input-search {
