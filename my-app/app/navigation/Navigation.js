@@ -169,7 +169,7 @@ export default function Navigation() {
         >
           <Box
             sx={{
-              width: "41px",
+              width: "40px",
               height: "41px",
               backgroundColor: "#F2F2F2",
               display: "flex",
