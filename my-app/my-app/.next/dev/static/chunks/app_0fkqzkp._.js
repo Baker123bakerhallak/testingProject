@@ -9,6 +9,10 @@ __turbopack_context__.s([
     ()=>EMPLOYEES_ENDPOINT,
     "NOTIFICATION_ENDPOIT",
     ()=>NOTIFICATION_ENDPOIT,
+    "STUDENTD_DETAILS",
+    ()=>STUDENTD_DETAILS,
+    "TEMPLATE_MESSAGES",
+    ()=>TEMPLATE_MESSAGES,
     "TOTAL_STUDENTS_ENDPOINT",
     ()=>TOTAL_STUDENTS_ENDPOINT
 ]);
@@ -16,6 +20,8 @@ const API_URL = "https://olamaa.iss-group.me/test-env";
 const TOTAL_STUDENTS_ENDPOINT = "/api/students/total-students";
 const NOTIFICATION_ENDPOIT = "/api/notifications/unread/count";
 const EMPLOYEES_ENDPOINT = "/api/employees/count";
+const TEMPLATE_MESSAGES = "/api/message-templates?type=sms&category=general&is_active=true";
+const STUDENTD_DETAILS = "/api/students/details?minimal=true";
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
@@ -45,21 +51,27 @@ function DataContext({ children }) {
     const totalStudents = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$useGetTotal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotal"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Api$2f$api$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TOTAL_STUDENTS_ENDPOINT"], "student");
     const notification = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$useGetTotal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotal"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Api$2f$api$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NOTIFICATION_ENDPOIT"], "notification");
     const emplpoyesCount = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$useGetTotal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotal"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Api$2f$api$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EMPLOYEES_ENDPOINT"], "employess_count");
+    const templateGeneralMessage = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$useGetTotal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotal"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Api$2f$api$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TEMPLATE_MESSAGES"], "templatMessages");
+    const detialsStudents = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$useGetTotal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotal"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$Api$2f$api$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["STUDENTD_DETAILS"], "detialsStudents");
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Data.Provider, {
         value: {
             totalStudents,
             notification,
-            emplpoyesCount
+            emplpoyesCount,
+            templateGeneralMessage,
+            detialsStudents
         },
         children: children
     }, void 0, false, {
         fileName: "[project]/app/context/Context.js",
-        lineNumber: 21,
+        lineNumber: 28,
         columnNumber: 5
     }, this);
 }
-_s(DataContext, "H5x/z9Sy7yCJ2R9vYAB/8M3EwjA=", false, function() {
+_s(DataContext, "lyX1MzJBvxpwDQK9fxxuEhekba0=", false, function() {
     return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$useGetTotal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotal"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$useGetTotal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotal"],
         __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$useGetTotal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotal"],
         __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$useGetTotal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotal"],
         __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$fetchData$2f$useGetTotal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGetTotal"]

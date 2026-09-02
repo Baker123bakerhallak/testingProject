@@ -2,6 +2,7 @@ import {
   CancelOutlined,
   CancelPresentation,
   MessageOutlined,
+  SmsFailed,
 } from "@mui/icons-material";
 import {
   Box,
@@ -17,14 +18,17 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import SmsField from "./SmsField";
 
 export default function Notification() {
+  const [checked, setChecked] = useState(false);
   const theme = useTheme();
   return (
     <div>
       <Dialog
+        open
         slotProps={{
           paper: {
             sx: {
@@ -79,13 +83,21 @@ export default function Notification() {
           />
         </DialogTitle>
 
-        <DialogActions>
+        <DialogActions
+          sx={{
+            flexDirection: "column",
+            display: "flex",
+            justifyContent: "flex-start",
+          }}
+        >
           <FormControl
             sx={{
               width: "100%",
               alignItems: "center",
               display: "flex",
               flexDirection: "row",
+              marginBottom: "20px",
+              borderBottom: "1px solid #eee",
             }}
           >
             <RadioGroup
@@ -121,6 +133,7 @@ export default function Notification() {
               />
             </RadioGroup>
           </FormControl>
+          <SmsField />
         </DialogActions>
       </Dialog>
     </div>
