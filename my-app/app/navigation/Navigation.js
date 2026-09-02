@@ -64,8 +64,13 @@ export default function Navigation() {
         display: "flex",
         alignItems: "center",
         padding: "  10px",
-        justifyContent: "space-between",
-        position: "relative",
+        justifyContent: isMobile ? "flex-end" : "space-between",
+        position: isMobile ? "fixed" : "relative",
+        top: "0",
+        left: "0",
+        width: "100%",
+        zIndex: "999",
+        backdropFilter: "blur(5px)",
       }}
     >
       <Box
