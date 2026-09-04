@@ -3,11 +3,7 @@ import { Data } from "@/app/context/Context";
 import { Autocomplete, Box, TextField } from "@mui/material";
 import React, { useContext } from "react";
 
-export default function MessageAll() {
-  const { templateGeneralMessage, detialsStudents } = useContext(Data);
-  console.log(templateGeneralMessage?.data);
-
-  console.log("students", detialsStudents?.data?.data);
+export default function Alltargets() {
   return (
     <Box>
       {/* <Autocomplete

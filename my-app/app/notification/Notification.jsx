@@ -2,6 +2,7 @@ import {
   CancelOutlined,
   CancelPresentation,
   MessageOutlined,
+  SendOutlined,
   SmsFailed,
 } from "@mui/icons-material";
 import {
@@ -24,6 +25,7 @@ import SmsField from "./SmsField";
 
 export default function Notification() {
   const [checked, setChecked] = useState(false);
+
   const theme = useTheme();
   return (
     <div>
@@ -39,7 +41,9 @@ export default function Notification() {
               position: "absolute",
               top: "0",
               right: "0",
-              padding: "0",
+              padding: "10px",
+              display: "flex",
+              flexDirection: "column",
             },
           },
           backdrop: {
@@ -86,8 +90,13 @@ export default function Notification() {
         <DialogActions
           sx={{
             flexDirection: "column",
+            height: "calc(100% - 90px)",
             display: "flex",
             justifyContent: "flex-start",
+            "& .MuiDialogActions-root MuiDialogActions-spacing css-17ep4xf-MuiDialogActions-root":
+              {
+                height: "calc(100% - 81px)",
+              },
           }}
         >
           <FormControl
@@ -134,6 +143,40 @@ export default function Notification() {
             </RadioGroup>
           </FormControl>
           <SmsField />
+          <Box
+            sx={{
+              marginTop: "10px",
+              width: "100%",
+              display: "flex",
+              height: "100%",
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+            }}
+          >
+            <Button
+              sx={{
+                color: "white",
+                padding: "10px 20px",
+
+                height: "fit-content",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: "10px",
+                backgroundImage:
+                  "linear-gradient(to right,   #6d003e , #d40078)",
+                borderRadius: "10px",
+              }}
+            >
+              <SendOutlined
+                sx={{
+                  transform: "rotate(-45deg)",
+                  fontSize: "20px",
+                }}
+              />
+              <Typography> إرسال SMS الان</Typography>
+            </Button>
+          </Box>
         </DialogActions>
       </Dialog>
     </div>

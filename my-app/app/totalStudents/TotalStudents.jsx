@@ -3,55 +3,78 @@
 import { Box, Typography } from "@mui/material";
 import React, { useContext } from "react";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
+
 import { Data } from "../context/Context";
 
 export default function TotalStudents() {
   const { totalStudents } = useContext(Data);
 
-  const male = 825;
-  const female = 861;
+  const male = totalStudents?.data?.data?.male_students ?? 0;
+  const female = totalStudents?.data?.data?.female_students ?? 0;
+
   const total = male + female;
-  const malePercent = (male / total) * 100;
-  const femalePercent = (female / total) * 100;
+
+  const malePercent = total > 0 ? (male / total) * 100 : 0;
+  const femalePercent = total > 0 ? (female / total) * 100 : 0;
 
   const maleData = [
-    { name: "Male", value: totalStudents?.data?.data?.male_students },
-    { name: "Remaining", value: 100 - malePercent },
+    {
+      name: "Male",
+      value: malePercent,
+      students: male,
+    },
+    {
+      name: "Remaining",
+      value: 100 - malePercent,
+    },
   ];
 
   const femaleData = [
-    { name: "Female", value: totalStudents?.data?.data.female_students },
-    { name: "Remaining", value: 100 - femalePercent },
+    {
+      name: "Female",
+      value: femalePercent,
+      students: female,
+    },
+    {
+      name: "Remaining",
+      value: 100 - femalePercent,
+    },
   ];
 
-  const toolTipCustomized = (
-    <Box
-      sx={{
-        backgroundColor: "#222",
-        color: "white",
-        padding: "12px 18px",
-        borderRadius: 3,
-        boxShadow: "0 4px 15px rgba(0,0,0,0.15)",
-      }}
-    >
-      <Typography
+  // Custom tooltip
+  function CustomTooltip({ active, payload }) {
+    if (!active || !payload?.length) {
+      return null;
+    }
+
+    const data = payload[0]?.payload;
+
+    // Don't show tooltip for the grey "Remaining" part
+    if (data?.name === "Remaining") {
+      return null;
+    }
+
+    return (
+      <Box
         sx={{
-          fontSize: 18,
-          fontWeight: 700,
+          backgroundColor: "#222",
+          color: "white",
+          padding: "12px 18px",
+          borderRadius: 2,
+          boxShadow: "0 4px 15px rgba(0,0,0,0.15)",
         }}
       >
-        Male: {totalStudents?.data?.data?.male_students}
-      </Typography>
-      <Typography
-        sx={{
-          fontSize: 18,
-          fontWeight: 700,
-        }}
-      >
-        female: {totalStudents?.data?.data?.female_students}
-      </Typography>
-    </Box>
-  );
+        <Typography
+          sx={{
+            fontSize: 18,
+            fontWeight: 700,
+          }}
+        >
+          {data?.name === "Male" ? "الذكور" : "الإناث"}: {data?.students}
+        </Typography>
+      </Box>
+    );
+  }
 
   return (
     <div>
@@ -68,7 +91,6 @@ export default function TotalStudents() {
           borderRadius: "10px",
           height: "520px",
           backgroundColor: "#eee",
-          //   border: "2px solid #eee",
         }}
       >
         <Box
@@ -95,8 +117,8 @@ export default function TotalStudents() {
               position: "relative",
             }}
           >
-            <ResponsiveContainer height="100%">
-              <PieChart width={320} height={520}>
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
                 {/* Outer ring - Male */}
                 <Pie
                   data={maleData}
@@ -106,9 +128,6 @@ export default function TotalStudents() {
                   innerRadius={110}
                   outerRadius={145}
                   startAngle={0}
-                  activeShape={{
-                    fill: "#5ba3de",
-                  }}
                   endAngle={180}
                   paddingAngle={0}
                   stroke="white"
@@ -127,9 +146,6 @@ export default function TotalStudents() {
                   innerRadius={75}
                   outerRadius={108}
                   startAngle={0}
-                  activeShape={{
-                    fill: "#d69a9a",
-                  }}
                   endAngle={180}
                   paddingAngle={0}
                   stroke="white"
@@ -138,7 +154,9 @@ export default function TotalStudents() {
                   <Cell fill="#D69AA5" />
                   <Cell fill="#EEEEEE" />
                 </Pie>
-                <Tooltip content={toolTipCustomized} />
+
+                {/* Custom tooltip */}
+                <Tooltip content={<CustomTooltip />} />
               </PieChart>
             </ResponsiveContainer>
 
@@ -174,7 +192,14 @@ export default function TotalStudents() {
               mt: 1,
             }}
           >
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            {/* Female */}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+              }}
+            >
               <Box
                 sx={{
                   width: 24,
@@ -187,7 +212,14 @@ export default function TotalStudents() {
               <Typography>الإناث</Typography>
             </Box>
 
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            {/* Male */}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+              }}
+            >
               <Box
                 sx={{
                   width: 24,

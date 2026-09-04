@@ -2,14 +2,22 @@
 
 import { Box, Button, ButtonGroup, Typography } from "@mui/material";
 import Link from "next/link";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Data } from "../context/Context";
+import Alltargets from "./hanldeMessagesSms/Alltargets";
+import Branch from "./hanldeMessagesSms/Branch";
+import Class from "./hanldeMessagesSms/Class";
+import OneStudent from "./hanldeMessagesSms/OneStudent";
+import StudentStatus from "./hanldeMessagesSms/StudentStatus";
+import {
+  Padding,
+  Send,
+  SendAndArchiveOutlined,
+  SendOutlined,
+} from "@mui/icons-material";
 
 export default function SmsField({ children }) {
-  const { templateGeneralMessage, detialsStudents } = useContext(Data);
-  console.log(templateGeneralMessage?.data);
-
-  console.log("students", detialsStudents?.data?.data);
+  const [target, setTarget] = useState("طالب محدد");
 
   // if (detialsStudents?.data?.data) {
   //   const arraysNameStudents = Array.from((detialsStudents?.data).length);
@@ -18,12 +26,14 @@ export default function SmsField({ children }) {
 
   return (
     <Box
-      style={{
+      sx={{
         display: "flex",
         justifyContent: "flex-start",
         alignItems: "center",
+        Padding: "10px",
         width: "100%",
         flexDirection: "column",
+        position: "relative",
       }}
     >
       <Typography
@@ -44,13 +54,54 @@ export default function SmsField({ children }) {
           alignItems: "center",
         }}
       >
-        <Button sx={{ border: "none" }}>الكل</Button>
-        <Button sx={{ border: "none" }}>فرغ معين</Button>
-        <Button sx={{ border: "none" }}>شعبة</Button>
-        <Button sx={{ border: "none" }}>حالة الطالب</Button>
-        <Button sx={{ border: "none" }}>طالب محدد</Button>
+        <Button
+          sx={{ border: "none" }}
+          onClick={(e) => {
+            setTarget("الكل");
+          }}
+        >
+          الكل
+        </Button>
+        <Button
+          sx={{ border: "none" }}
+          onClick={(e) => {
+            setTarget("فرغ معين");
+          }}
+        >
+          فرغ معين
+        </Button>
+        <Button
+          sx={{ border: "none" }}
+          onClick={(e) => {
+            setTarget("شعبة");
+          }}
+        >
+          شعبة
+        </Button>
+        <Button
+          sx={{ border: "none" }}
+          onClick={(e) => {
+            setTarget("حالة الطالب");
+          }}
+        >
+          حالة الطالب
+        </Button>
+        <Button
+          sx={{ border: "none" }}
+          onClick={(e) => {
+            setTarget("طالب محدد");
+          }}
+        >
+          طالب محدد
+        </Button>
       </ButtonGroup>
-      {children}
+      <Box sx={{ marginTop: 3 }}>
+        {target === "الكل" && <Alltargets />}
+        {target === "فرغ معين" && <Branch />}
+        {target === "شعبة" && <Class />}
+        {target === "حالة الطالب" && <StudentStatus />}
+        {target === "طالب محدد" && <OneStudent />}
+      </Box>
     </Box>
   );
 }
